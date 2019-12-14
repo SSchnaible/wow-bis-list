@@ -1,25 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+  <md-app id="app">
+    <md-app-content>
+      <span class="md-display-1">{{ bisData.title }}</span>
+      <transition mode="out-in">
+        <router-view v-bind:bisData="bisData" />
+      </transition>
+    </md-app-content>
+  </md-app>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from './components/HelloWorld.vue'
+import { Component, Vue, Prop } from 'vue-property-decorator';
+import { BiSListData } from './model';
+import BiSData from './../data.json';
 
-@Component({
-  components: {
-    HelloWorld
+export default Vue.extend({
+  name: 'App',
+  data: function () {
+    return {
+      bisData: BiSData
+    };
   }
-})
-export default class App extends Vue {}
+});
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
