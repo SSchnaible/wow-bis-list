@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="input-buttons">
-      <md-field>
+    <div class="input-fields">
+      <md-field class="input-field">
         <label>Sort by</label>
         <md-select v-model="sortBy">
           <md-option
@@ -11,7 +11,7 @@
           >{{ option.title }}</md-option>
         </md-select>
       </md-field>
-      <md-field>
+      <md-field class="input-field">
         <label>Phase</label>
         <md-select v-model="phaseFilter">
           <md-option
@@ -23,7 +23,10 @@
       </md-field>
     </div>
 
-    <md-tabs>
+    <md-tabs
+      class="md-primary"
+      md-alignment="centered"
+    >
       <md-tab
         v-for="slot in bisData.slots"
         v-bind:key="slot.title"
@@ -77,8 +80,14 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.input-buttons {
+.input-fields {
   display: flex;
-  margin: 0 auto;
+  justify-content: center;
+  margin: 15px 0px;
+}
+
+.input-field {
+  margin: 0 20px;
+  width: 200px;
 }
 </style>

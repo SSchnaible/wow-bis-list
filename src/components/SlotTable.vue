@@ -64,4 +64,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+.md-table-head {
+  text-align: center;
+}
 </style>
