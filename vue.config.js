@@ -1,4 +1,4 @@
 module.exports = {
   outputDir: 'docs',
-  publicPath: 'wow-bis-list',
+  publicPath: '/wow-bis-list',
 };
