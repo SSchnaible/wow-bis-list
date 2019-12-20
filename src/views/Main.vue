@@ -25,7 +25,6 @@
 
     <md-tabs
       class="md-primary"
-      md-alignment="centered"
     >
       <md-tab
         v-for="slot in bisData.slots"
@@ -84,10 +83,11 @@ export default Vue.extend({
   display: flex;
   justify-content: center;
   margin: 15px 0px;
+  max-width: 100%;
+  flex-wrap: wrap;
 }
 
 .input-field {
-  margin: 0 20px;
-  width: 200px;
+  margin: 10px;
 }
 </style>

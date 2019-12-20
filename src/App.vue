@@ -32,4 +32,12 @@ export default Vue.extend({
   text-align: center;
   color: #2c3e50;
 }
+
+.md-tabs-navigation {
+  overflow-x: auto;
+}
+
+.md-tab-nav-button {
+  min-width: fit-content !important;
+}
 </style>
