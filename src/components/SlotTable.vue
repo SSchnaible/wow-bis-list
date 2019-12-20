@@ -6,21 +6,19 @@
         v-bind:key="key"
       >{{feature.title}}</md-table-head>
       <md-table-head>Name</md-table-head>
-      <md-table-head>Link</md-table-head>
       <md-table-head>Phase</md-table-head>
     </md-table-row>
 
     <md-table-row
-      v-for="(item,index) in filteredItems"
-      v-bind:key="index"
+      v-for="item in filteredItems"
+      v-bind:key="item.id"
     >
       <md-table-cell
         v-for="(feature,key) in comparisonFeatures"
         v-bind:key="key"
       >{{ item.comparisonValues[key] }}</md-table-cell>
-      <md-table-cell>{{ item.name }}</md-table-cell>
       <md-table-cell>
-        <a v-bind:href="`https://classic.wowhead.com/?item=${item.id}`">{{ item.id }}</a>
+        <a v-bind:href="`https://classic.wowhead.com/?item=${item.id}`">{{ item.name }}</a>
       </md-table-cell>
       <md-table-cell>{{ item.phase }}</md-table-cell>
     </md-table-row>
@@ -32,6 +30,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { SlotData, ComparisonFeature, ItemData } from '../model';
 import { PropType } from 'vue';
 import _ from 'lodash';
+import WowheadTooltip from './WowheadTooltip.vue';
 
 export default Vue.extend({
   name: 'SlotTable',
@@ -64,7 +63,9 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+
 .md-table-head {
   text-align: center;
 }
+
 </style>
